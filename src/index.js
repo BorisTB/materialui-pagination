@@ -168,7 +168,7 @@ class Pagination extends React.Component {
             iconStyle={this.props.page <= 1 ?  styles.navigationLeftFirstPage : styles.navigationLeft}
             name={"navigationLeft"}
             disabled={this.props.page <= 1}
-            onTouchTap={this.decrementPage}>
+            onClick={this.decrementPage}>
               <ChevronLeft
                 />
               </IconButton>
@@ -176,7 +176,7 @@ class Pagination extends React.Component {
               iconStyle={this.props.page >= this.props.total / this.props.numberOfRows ? styles.navigationRightLastPage: styles.navigationRight}
               name={"navigationRight"}
               disabled={this.props.page >= this.props.total / this.props.numberOfRows}
-              onTouchTap={this.incrementPage}>
+              onClick={this.incrementPage}>
               <ChevronRight
               />
               </IconButton>
