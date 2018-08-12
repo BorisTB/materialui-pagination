@@ -1,6 +1,6 @@
 {
   "name": "materialui-pagination",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple pagination component for Material UI.",
   "main": "lib/index.js",
   "module": "es/index.js",
