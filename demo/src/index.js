@@ -3,10 +3,6 @@ import React  from 'react';
 import PropTypes from 'prop-types';
 import {render} from 'react-dom';
 
-//Material UI Dependency for touch / tap / click events
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
 //Material UI Components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card} from 'material-ui/Card';
