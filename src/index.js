@@ -27,7 +27,8 @@ const styles = {
   },
   paginationSelect: {
     width: 75,
-    fontSize: '1em'
+    fontSize: '1em',
+    position: 'relative'
   },
   navigationLeft: {
     marginRight: '.5em',
@@ -48,40 +49,35 @@ const styles = {
 };
 
 class Pagination extends React.Component {
-    constructor(props, context) {
-        super(props, context);
+  constructor(props, context) {
+    super(props, context);
 
+    this.renderRowsPerPage = this.renderRowsPerPage.bind(this);
+    this.renderRowRange = this.renderRowRange.bind(this);
 
-        this.selectRowsPerPage = this.selectRowsPerPage.bind(this);
-        this.selectPageNumber = this.selectPageNumber.bind(this);
+    this.numberOfPages = this.numberOfPages.bind(this);
 
-        this.renderRowsPerPage = this.renderRowsPerPage.bind(this);
-        this.renderRowRange = this.renderRowRange.bind(this);
+    this.incrementPage = this.incrementPage.bind(this);
+    this.decrementPage = this.decrementPage.bind(this);
+  }
 
-        this.numberOfPages = this.numberOfPages.bind(this);
+  selectRowsPerPage(event, index, value){
+    const updatedState =  Object.assign({}, this.props);
+    updatedState.numberOfRows = parseInt(value);
 
-        this.incrementPage = this.incrementPage.bind(this);
-        this.decrementPage = this.decrementPage.bind(this);
-    }
-
-
-    selectRowsPerPage(e){
-      const updatedState =  Object.assign({}, this.props);
-      updatedState.numberOfRows = parseInt(e.target.innerText, 10);
-      if( updatedState.numberOfRows * this.props.page > this.props.total ) {
-        let updatedPage = Math.ceil(this.props.total / updatedState.numberOfRows, 10);
-        updatedState.page = updatedPage;
-        this.props.updateRows(updatedState);
-      } else {
-        this.props.updateRows(updatedState);
-      }
-    }
-
-    selectPageNumber(e){
-      const updatedState =  Object.assign({}, this.props);
-      updatedState.page = parseInt(e.target.innerText, 10);
+    if (updatedState.numberOfRows * this.props.page > this.props.total) {
+      updatedState.page = Math.ceil(this.props.total / updatedState.numberOfRows);
+      this.props.updateRows(updatedState);
+    } else {
       this.props.updateRows(updatedState);
     }
+  }
+
+  selectPageNumber(event, index, value){
+    const updatedState =  Object.assign({}, this.props);
+    updatedState.page = parseInt(value);
+    this.props.updateRows(updatedState);
+  }
 
     numberOfPages(){
       let numArray = [];
