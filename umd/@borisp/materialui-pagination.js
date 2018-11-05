@@ -1,5 +1,5 @@
 /*!
- * materialui-pagination v0.0.9 - https://github.com/franciskim722/materialui-pagination#readme
+ * @borisp/materialui-pagination v0.0.11 - https://github.com/franciskim722/materialui-pagination#readme
  * MIT Licensed
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -4414,11 +4414,11 @@ var Pagination = function (_React$Component) {
 
     _this.renderRowsPerPage = _this.renderRowsPerPage.bind(_this);
     _this.renderRowRange = _this.renderRowRange.bind(_this);
-
     _this.numberOfPages = _this.numberOfPages.bind(_this);
-
     _this.incrementPage = _this.incrementPage.bind(_this);
     _this.decrementPage = _this.decrementPage.bind(_this);
+    _this.selectRowsPerPage = _this.selectRowsPerPage.bind(_this);
+    _this.selectPageNumber = _this.selectPageNumber.bind(_this);
     return _this;
   }
 
